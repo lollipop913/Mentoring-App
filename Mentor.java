@@ -10,7 +10,7 @@ public class Mentor {
       this.name = name;
       this.position = position;
       this.linkedin = linkedin;
-      this.availability = availability;
+      this.availability = availability + " times per month";
    }
    
    public String getCompany() {
@@ -21,11 +21,15 @@ public class Mentor {
       return name;
    }
    
+   public String getPosition() {
+      return position;
+   }
+   
    public String getLinkedin() {
       return linkedin;
    }
    
-   public String availability() {
+   public String getAvailability() {
       return availability;
    }
 }
