@@ -3,6 +3,8 @@ import java.io.*;
 public class MentoringAppMain {
 
    public static void main(String[] args) throws FileNotFoundException, IOException {
+      System.out.println("Welcome to Mentor Match!");
+      
       File file = new File("MentorData");
       Scanner sc = new Scanner(file);
       
@@ -12,7 +14,7 @@ public class MentoringAppMain {
          String info = sc.nextLine();
          String[] splitInfo = info.split(":");
          String name = splitInfo[0];
-         String company = splitInfo[1];
+         String company = splitInfo[1].toLowerCase();
          String position = splitInfo[2];
          String linkedin = splitInfo[3];
          String availability = splitInfo[4];
@@ -44,7 +46,7 @@ public class MentoringAppMain {
             Mentor mentor = new Mentor(company, name, position, linkedin, availability);
             
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
-            String mentorInfo = name + ":" + company + ":" + position + ":" + linkedin + ":" + availability;
+            String mentorInfo = name + ":" + company + ":" + position + ":" + linkedin + ":" + availability + " times per month";
             writer.newLine();
             writer.append(mentorInfo);
             writer.close();
