@@ -18,8 +18,13 @@ public class Matcher {
          if (company.equalsIgnoreCase(mentee.getCompany())) {
             Set<Mentor> set = mentorMap.get(company);
             System.out.println("Available Mentors:");
+            System.out.println();
             for (Mentor mentor : set) {
                System.out.println(mentor.getName());
+               System.out.println("   Position:" + position);
+               System.out.println("   LinkedIn:" + linkedin);
+               System.out.println("   Availability:" + availability);
+               System.out.println();
             }
          }
       }
