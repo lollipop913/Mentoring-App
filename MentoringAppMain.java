@@ -31,7 +31,7 @@ public class MentoringAppMain {
       System.out.println("Mentor or Mentee?");
       String input = scan.nextLine();
       
-      Mentee user = new Mentee("Audrey", "Microsoft");
+      Mentee user = new Mentee("Audrey", "Microsoft", "Software Engineer");
       Matcher m = new Matcher(user, companyMentors);
       m.reduceList();
       while (!input.equalsIgnoreCase("quit")) {

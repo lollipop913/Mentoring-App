@@ -21,11 +21,15 @@ public class Mentor {
       return name;
    }
    
+   public String getPosition() {
+      return position;
+   }
+   
    public String getLinkedin() {
       return linkedin;
    }
    
-   public String availability() {
+   public String getAvailability() {
       return availability;
    }
 }

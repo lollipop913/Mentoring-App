@@ -21,9 +21,9 @@ public class Matcher {
             System.out.println();
             for (Mentor mentor : set) {
                System.out.println(mentor.getName());
-               System.out.println("   Position:" + position);
-               System.out.println("   LinkedIn:" + linkedin);
-               System.out.println("   Availability:" + availability);
+               System.out.println("   Position:" + mentor.getPosition());
+               System.out.println("   LinkedIn:" + mentor.getLinkedin());
+               System.out.println("   Availability:" + mentor.getAvailability());
                System.out.println();
             }
          }
