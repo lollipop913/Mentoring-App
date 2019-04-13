@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 public class MentoringAppMain {
 
-   public static void main(String[] args) throws FileNotFoundException {
+   public static void main(String[] args) throws FileNotFoundException, IOException {
       File file = new File("MentorData");
       Scanner sc = new Scanner(file);
       
@@ -31,28 +31,40 @@ public class MentoringAppMain {
       System.out.println("Mentor or Mentee?");
       String input = scan.nextLine();
       
-      Mentee user = new Mentee("Audrey", "Microsoft");
-      Matcher m = new Matcher(user, companyMentors);
-      m.reduceList();
       while (!input.equalsIgnoreCase("quit")) {
          if (input.equalsIgnoreCase("mentor")) {
             System.out.println("Name?");
             String name = scan.nextLine();
             System.out.println("Company?");
             String company = scan.nextLine().toLowerCase();
-            Mentor mentor = new Mentor(company, name);
+            System.out.println("Position?");
+            String position = scan.nextLine();
+            System.out.println("LinkedIn?");
+            String linkedin = scan.nextLine();
+            System.out.println("Number of meetings per month?");
+            String availability = scan.nextLine();
+            
+            Mentor mentor = new Mentor(company, name, position, linkedin, availability);
+            
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+            String mentorInfo = name + ":" + company + ":" + position + ":" + linkedin + ":" + availability;
+            writer.newLine();
+            writer.append(mentorInfo);
+            writer.close();
+            
+            
             if (!companyMentors.containsKey(company)) {
                companyMentors.put(company, new HashSet<Mentor>());
             }
             companyMentors.get(company).add(mentor);
-            System.out.println("company: " + company);
-            System.out.println("mentors in company: " + companyMentors.get(company));
          } else if (input.equalsIgnoreCase("mentee")) {
             System.out.println("Name?");
             String name = scan.nextLine();
             System.out.println("Company?");
-            String company = scan.nextLine();
-            Mentee user = new Mentee(name, company);
+            String company = scan.nextLine().toLowerCase();
+            System.out.println("Position?");
+            String position = scan.nextLine();
+            Mentee user = new Mentee(name, company, position);
             Matcher m = new Matcher(user, companyMentors);
             m.reduceList();
          } else {
@@ -61,5 +73,6 @@ public class MentoringAppMain {
          System.out.println("Mentor or Mentee?");
          input = scan.nextLine();
       }
+      
    }
 }
