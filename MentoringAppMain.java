@@ -23,14 +23,11 @@ public class MentoringAppMain {
          companyMentors.get(company).add(mentor);
       }
       
-      for (String company: companyMentors.keySet()) {
-         System.out.println("Company: " + company + " Mentors: " + companyMentors.get(company)); 
-      }
       
       Scanner scan = new Scanner(System.in);
       System.out.println("Mentor or Mentee?");
       String input = scan.nextLine();
-      
+
       while (!input.equalsIgnoreCase("quit")) {
          if (input.equalsIgnoreCase("mentor")) {
             System.out.println("Name?");
