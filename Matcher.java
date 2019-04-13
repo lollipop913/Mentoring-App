@@ -1,4 +1,4 @@
-import java.util*;
+import java.util.*;
 
 public class Matcher {
    private Mentee mentee;
@@ -14,10 +14,10 @@ public class Matcher {
    
    //Reduces and prints the list of available mentors based on mentee's company name 
    public void reduceList() {
-      for (company : mentorMap.keySet()) {
-         if (company.isEqual(mentee.getCompany())) {
+      for (String company : mentorMap.keySet()) {
+         if (company.equalsIgnoreCase(mentee.getCompany())) {
             Set<Mentor> set = mentorMap.get(company);
-            for (mentor : set) {
+            for (Mentor mentor : set) {
                System.out.println(mentor.getName());
             }
          }
