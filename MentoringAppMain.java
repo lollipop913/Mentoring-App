@@ -9,9 +9,14 @@ public class MentoringAppMain {
       Map<String, Set<Mentor>> companyMentors = new HashMap<String, Set<Mentor>>();
       
       while (sc.hasNextLine()) {
-         String name = sc.nextLine();
-         String company = sc.nextLine();
-         Mentor mentor = new Mentor(company, name);
+         String info = sc.nextLine();
+         String[] splitInfo = info.split(":");
+         String name = splitInfo[0];
+         String company = splitInfo[1];
+         String position = splitInfo[2];
+         String linkedin = splitInfo[3];
+         String availability = splitInfo[4];
+         Mentor mentor = new Mentor(company, name, position, linkedin, availability);
          if (!companyMentors.containsKey(company)) {
             companyMentors.put(company, new HashSet<Mentor>());
          }
@@ -22,7 +27,7 @@ public class MentoringAppMain {
          System.out.println("Company: " + company + " Mentors: " + companyMentors.get(company)); 
       }*/
       
-      Mentee user = new Mentee("Audrey", "UW");
+      Mentee user = new Mentee("Audrey", "Microsoft");
       Matcher m = new Matcher(user, companyMentors);
       m.reduceList();
       
