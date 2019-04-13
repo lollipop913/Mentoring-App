@@ -17,6 +17,7 @@ public class Matcher {
       for (String company : mentorMap.keySet()) {
          if (company.equalsIgnoreCase(mentee.getCompany())) {
             Set<Mentor> set = mentorMap.get(company);
+            System.out.println("Available Mentors:");
             for (Mentor mentor : set) {
                System.out.println(mentor.getName());
             }
