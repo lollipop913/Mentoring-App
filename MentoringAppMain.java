@@ -18,11 +18,13 @@ public class MentoringAppMain {
          companyMentors.get(company).add(mentor);
       }
       
-      for (String company: companyMentors.keySet()) {
+      /*for (String company: companyMentors.keySet()) {
          System.out.println("Company: " + company + " Mentors: " + companyMentors.get(company)); 
-      }
+      }*/
       
-      Mentee user = new Mentee("Audrey", "Facebook");
+      Mentee user = new Mentee("Audrey", "UW");
+      Matcher m = new Matcher(user, companyMentors);
+      m.reduceList();
       
    
    }
